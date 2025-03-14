@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+* {
+    overscroll-behavior-y: contain;
+}
+
+.font-montserrat {
+    font-family: "Montserrat", sans-serif;
+}
+  
+.font-mulish {
+    font-family: "Mulish", sans-serif;
+}
+
+@theme {
+    --color-left: #BA0000;
+    --color-right: #003A90;
+    --color-highlight: #BFD900;
+    --color-primary-100: #EAEAEA;
+    --color-primary-900: #383838;
+    --font-title: "Montserrat", "sans-serif";
+    --font-display: "Mulish", "sans-serif";
+}
