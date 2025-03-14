@@ -9,12 +9,13 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
         name: 'Balanced News',
         short_name: 'BalancedNews',
         description: 'Balanced News makes it easy to seek various views and make your own opinion on current news.',
         theme_color: '#ffffff',
+        display: 'standalone',
         icons: [
           {
             src: 'pwa-192x192.png',

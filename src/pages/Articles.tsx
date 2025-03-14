@@ -19,9 +19,6 @@ const Articles: React.FC = () => {
   const { data: articlesData, isLoading: articlesLoading } = useArticleData(storyId);
   
   if (summariesLoading || articlesLoading) return <div>Loading article data...</div>;
-  
-  // Todo:
-  // 4. check type for summaries being fetched from the api
 
   return (
     <div className="m-4 space-y-4 font-display">
@@ -31,7 +28,7 @@ const Articles: React.FC = () => {
 
       {title && imageUrl && (
         <div className="flex justify-between">
-          <h2 className="text-3xl font-title font-black">{title}</h2>
+          <h2 className="text-2xl font-title font-black">{title}</h2>
           <img 
           src={imageUrl}
           className="w-28 h-28 object-cover rounded-xl"
