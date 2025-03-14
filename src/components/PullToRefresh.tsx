@@ -1,4 +1,3 @@
-// components/PullToRefresh.tsx
 import { useRef, useState, useEffect } from 'react';
 
 interface PullToRefreshProps {
@@ -61,16 +60,24 @@ const PullToRefresh: React.FC<PullToRefreshProps> = ({
   return (
     <div 
       ref={containerRef}
-      className={` ${isRefreshing ? 'refreshing' : ''}`}
+      className={`relative ${isRefreshing ? 'refreshing' : ''}`}
       style={{ marginTop: pullChange / 2 || 0 }}
     >
-      <div className="p-2 w-2 rounded-full">
+      <div 
+        className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center w-10 h-10"
+        style={{ 
+          opacity: pullChange > 0 ? Math.min(pullChange / threshold, 1) : 0,
+          top: -40
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
+          width="24"
+          height="24"
           className={isRefreshing ? 'animate-spin' : ''}
           style={{ transform: `rotate(${pullChange}deg)` }}
         >
