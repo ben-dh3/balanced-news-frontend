@@ -24,12 +24,12 @@ const Headlines: React.FC = () => {
 
   return (
     <PullToRefresh onRefresh={handleRefresh}>
-      <div className='mt-2 font-display gap-4 flex flex-col justify-center items-center min-h-screen'>
+      <div className='mt-2 font-display gap-6 flex flex-col justify-center items-center min-h-screen'>
         <PageTitle lastUpdated={lastUpdated} />
 
-        <div className='flex flex-col'>
+        <div className='mb-4 flex flex-col'>
           {!data?.headlines?.length ? (
-            <div>No headlines available</div>
+            <div className='font-display'>No headlines available</div>
           ) : (
             <>
               <HeadlineCard headline={data.headlines[0]} isFeatured={true} />

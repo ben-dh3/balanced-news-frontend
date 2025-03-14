@@ -28,7 +28,7 @@ const HeadlineCard = ({ headline, isFeatured }: { headline: StoredHeadline, isFe
                 </div>  
             </div>
         ) : (
-            <div className="space-y-4 p-4 m-4 bg-primary-100 rounded-xl">
+            <div className="mt-6 mx-4 p-4 bg-primary-100 rounded-xl">
                 <div className="flex justify-between">
                     <div className="space-y-2">
                         <h2 className="text-xl font-title font-black">{headline.title}</h2>
