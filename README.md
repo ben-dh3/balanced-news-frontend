@@ -43,9 +43,19 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+#### Headline Page:
+* A list of the top headlines from the NewsAPI.
+* A lambda function on the backend finds keywords from the headlines using natural language processing libraries [WinkNLP](https://winkjs.org/wink-nlp/) and [Natural](https://naturalnode.github.io/natural/) and performs a second search on a range of sources to find related articles.
+* I have created a collection of sources that provide a range of political perspectives influenced by the [AllSides Media Bias Chart](https://www.allsides.com/media-bias/media-bias-chart), these sources are referenced in the second search query mentioned above.
+* The number of related articles found and their political perspective are used to display a percentage distribution of bias for each headline.
+  
 ![Screenshot from 2025-03-14 17-11-21](https://github.com/user-attachments/assets/4a0116b3-9b85-4e8f-a9e1-f35c0b13ffb1)
 
+#### Articles Page:
+* A lambda function combines content from the related articles and if there is enough content for a particular perspective, a summary of the articles is generated using the AnthropicAPI.
+* If all perspectives (left, right, center) have enough content, then a Bias Comparison is generated along with the summaries. This aims to compare the range of views and provide analysis.
+* The related articles are displayed which can be filtered by perspective.
+  
 ![Screenshot from 2025-03-14 17-12-07](https://github.com/user-attachments/assets/8f6227dd-edd3-4888-a770-e728cfbc126c)
 ![Screenshot from 2025-03-14 17-11-39](https://github.com/user-attachments/assets/10e25996-489f-4f7f-afd9-37917bba13c4)
 
