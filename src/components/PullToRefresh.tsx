@@ -62,7 +62,7 @@ const PullToRefresh: React.FC<PullToRefreshProps> = ({
     <div 
       ref={containerRef}
       className={` ${isRefreshing ? 'refreshing' : ''}`}
-      style={{ marginTop: pullChange / 3 || 0 }}
+      style={{ marginTop: pullChange / 2 || 0 }}
     >
       <div className="p-2 w-2 rounded-full">
         <svg

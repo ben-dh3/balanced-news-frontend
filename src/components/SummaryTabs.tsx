@@ -36,9 +36,9 @@ const SummaryTabs: React.FC<SummariesResponse> = ({ summaryData }) => {
                     <button
                         key={key}
                         onClick={() => content.length > 0 && setActiveTab(key)}
-                        className={`flex-1 p-2 text-center text-xs ${
+                        className={`flex-1 p-2 text-center text-xs m-2 ${
                             content.length > 0 ? "cursor-pointer hover:bg-gray-200" : "text-gray-400 cursor-not-allowed"
-                        } ${activeTab === key && content.length > 0 ? `${background} ${text} font-semibold rounded-xl m-2` : ""}`}
+                        } ${activeTab === key && content.length > 0 ? `${background} ${text} font-semibold rounded-xl` : ""}`}
                     >
                         {label}
                     </button>
@@ -47,7 +47,7 @@ const SummaryTabs: React.FC<SummariesResponse> = ({ summaryData }) => {
 
             <div className="font-display p-4">
                 {tabs.find(tab => tab.key === activeTab)?.content.length ? (
-                    <ul className="list-disc pl-5">
+                    <ul className="list-disc pl-5 space-y-2">
                         {tabs.find(tab => tab.key === activeTab)?.content.map((item, index) => (
                             <li key={index}>{item}</li>
                         ))}
