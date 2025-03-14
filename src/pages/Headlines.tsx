@@ -24,7 +24,7 @@ const Headlines: React.FC = () => {
 
   return (
     <PullToRefresh onRefresh={handleRefresh}>
-      <div className='font-display gap-4 flex flex-col justify-center items-center min-h-screen'>
+      <div className='mt-2 font-display gap-4 flex flex-col justify-center items-center min-h-screen'>
         <PageTitle lastUpdated={lastUpdated} />
 
         <div className='flex flex-col'>
