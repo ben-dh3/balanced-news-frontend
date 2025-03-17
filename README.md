@@ -43,6 +43,10 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+#### Application Flowchart:
+<img width="1728" alt="Flow Chart Template (Copy)" src="https://github.com/user-attachments/assets/2bfce1e3-8cf9-4b86-a0e9-ef75a6e4fa50" />
+
+
 #### Headline Page:
 * A list of the top headlines from the NewsAPI.
 * A lambda function on the backend finds keywords from the headlines using natural language processing libraries [WinkNLP](https://winkjs.org/wink-nlp/) and [Natural](https://naturalnode.github.io/natural/) and performs a second search on a range of sources to find related articles.
