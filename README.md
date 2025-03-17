@@ -43,7 +43,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-#### Application Flowchart:
+#### Application Flow Chart:
 <img width="1728" alt="Flow Chart Template (Copy)" src="https://github.com/user-attachments/assets/2bfce1e3-8cf9-4b86-a0e9-ef75a6e4fa50" />
 
 
