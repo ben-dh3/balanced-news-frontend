@@ -4,7 +4,7 @@ import SummaryTabs from '../components/SummaryTabs';
 import ArticleList from '../components/ArticleList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import PullToRefresh from '@/components/PullToRefresh';
+import PullToRefresh from '../components/PullToRefresh';
 import { useQueryClient } from '@tanstack/react-query';
 
 const Articles: React.FC = () => {
