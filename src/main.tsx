@@ -10,9 +10,9 @@ import App from './App.tsx'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 10,
-      gcTime: 1000 * 60 * 60 * 24,
-      refetchOnWindowFocus: false,
+      staleTime: 1000 * 60 * 60 * 12, // 12 hours
+      gcTime: 1000 * 60 * 60 * 24 * 7, // One week
+      refetchOnWindowFocus: true,
       refetchOnMount: false,
       retry: 1,
     },
@@ -26,6 +26,7 @@ const persister = createAsyncStoragePersister({
 persistQueryClient({
   queryClient,
   persister,
+  maxAge: 1000 * 60 * 60 * 24 * 7, // One week
 });
 
 createRoot(document.getElementById('root')!).render(
