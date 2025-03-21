@@ -1,4 +1,4 @@
-import { useArticleData, calculatePerspectiveDistribution } from '../api/articleService';
+import { useArticleData, calculatePerspectiveDistribution } from '../api/dataService';
 
 interface PerspectiveDistributionProps {
   storyId: string;

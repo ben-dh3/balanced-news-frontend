@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useArticleData, useSummaryData } from '../api/articleService';
+import { useArticleData, useSummaryData } from '../api/dataService';
 import SummaryTabs from '../components/SummaryTabs';
 import ArticleList from '../components/ArticleList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,18 +14,35 @@ const Articles: React.FC = () => {
   const { title, imageUrl } = location.state || {};
   const queryClient = useQueryClient();
 
+  const { 
+    data: summaryData, 
+    isLoading: summariesLoading,
+    error: summariesError 
+  } = useSummaryData(storyId);
+  const { 
+    data: articlesData, 
+    isLoading: articlesLoading,
+    error: articlesError 
+  } = useArticleData(storyId);
+
   const handleGoBack = () => {
     navigate('/');
   };
 
   const handleRefresh = async () => {
-    await queryClient.invalidateQueries({ queryKey: ['articles', 'summaries'] });
+    await Promise.all([
+      queryClient.invalidateQueries({ queryKey: ['articles', storyId] }),
+      queryClient.invalidateQueries({ queryKey: ['summary', storyId] })
+    ]);
   };
   
-  const { data: summaryData, isLoading: summariesLoading } = useSummaryData(storyId);
-  const { data: articlesData, isLoading: articlesLoading } = useArticleData(storyId);
-  
-  if (summariesLoading || articlesLoading) return <div>Loading article data...</div>;
+  if (summariesLoading || articlesLoading) {
+    return <div>Loading article data...</div>;
+  }
+
+  if (summariesError || articlesError) {
+    return <div>Error: {summariesError?.message || articlesError?.message}</div>;
+  }
 
   return (
     <PullToRefresh onRefresh={handleRefresh}>

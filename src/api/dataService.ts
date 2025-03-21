@@ -1,5 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import api, { StoredArticles, StorySummary } from './client';
+import api, { HeadlinesResponse, StoredArticles, StorySummary } from './client';
+
+
+export const useHeadlineData = () => {
+    const headlinesQuery = useQuery<HeadlinesResponse>({
+      queryKey: ['headlines'],
+      queryFn: () => api.getHeadlines(),
+  });
+
+  return headlinesQuery;
+}
 
 export const useArticleData = (storyId: string | undefined) => {
   const articlesQuery = useQuery<StoredArticles>({
