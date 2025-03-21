@@ -79,11 +79,6 @@ export interface SummariesResponse {
 const api = {
     getHeadlines: async (): Promise<HeadlinesResponse> => {
         try {
-            const cachedData = await localforage.getItem<HeadlinesResponse>('headlines')
-            if(cachedData){
-                return cachedData;
-            }
-
             const response = await apiClient.get('/stored-headlines');
             await localforage.setItem('headlines', response.data);
 
@@ -102,11 +97,6 @@ const api = {
 
     getArticles: async (): Promise<ArticlesResponse> => {
         try {
-            const cachedData = await localforage.getItem<ArticlesResponse>('articles')
-            if(cachedData){
-                return cachedData;
-            }
-
             const response = await apiClient.get('/stored-articles');
             await localforage.setItem('articles', response.data);
 
@@ -125,13 +115,7 @@ const api = {
 
     getSummaries: async (): Promise<SummariesResponse> => {
         try {
-            const cachedData = await localforage.getItem<SummariesResponse>('summaries')
-            if(cachedData){
-                return cachedData;
-            }
-            // debug
             const response = await apiClient.get('/stored-summaries');
-            console.log("Summary data:", response.data)
             await localforage.setItem('summaries', response.data);
 
             return response.data;
@@ -148,13 +132,9 @@ const api = {
     },
 
     getArticlesByStoryId: async (storyId: string): Promise<StoredArticles> => {
-        try {
-            const cacheKey = `storedArticles-${storyId}`;
-            const cachedData = await localforage.getItem<StoredArticles>('cacheKey')
-            if(cachedData){
-                return cachedData;
-            }
+        const cacheKey = `storedArticles-${storyId}`;
 
+        try {
             const response = await apiClient.get(`/stored-articles?storyId=${storyId}`);
             await localforage.setItem(cacheKey, response.data);
 
@@ -162,7 +142,6 @@ const api = {
         } catch (error) {
             console.error(`Error getting articles for story ${storyId}`, error);
             
-            const cacheKey = `storedArticles-${storyId}`;
             const cachedData = await localforage.getItem<StoredArticles>(cacheKey);
             if (cachedData) {
                 return cachedData;
@@ -173,13 +152,9 @@ const api = {
     },
     
     getSummaryByStoryId: async (storyId: string): Promise<StorySummary> => {
-        try {
-            const cacheKey = `storySummary-${storyId}`;
-            const cachedData = await localforage.getItem<StorySummary>(cacheKey)
-            if(cachedData){
-                return cachedData;
-            }
+        const cacheKey = `storySummary-${storyId}`;
 
+        try {
             const response = await apiClient.get(`/stored-summaries?storyId=${storyId}`);
             await localforage.setItem(cacheKey, response.data);
             
@@ -187,7 +162,6 @@ const api = {
         } catch (error) {
             console.error(`Error getting summary for story ${storyId}`, error);
 
-            const cacheKey = `storySummary-${storyId}`;
             const cachedData = await localforage.getItem<StorySummary>(cacheKey);
             if (cachedData) {
                 return cachedData;
