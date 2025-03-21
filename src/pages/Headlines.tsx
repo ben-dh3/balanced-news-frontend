@@ -3,7 +3,7 @@ import { useState } from 'react';
 import PullToRefresh from '../components/PullToRefresh';
 import PageTitle from '../components/Title';
 import HeadlineCard from '../components/HeadlineCard';
-import { useHeadlineData } from '@/api/dataService';
+import { useHeadlineData } from '../api/dataService';
 
 const Headlines: React.FC = () => {
   const [lastUpdated, setLastUpdated] = useState(new Date());
