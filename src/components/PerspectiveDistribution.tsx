@@ -15,7 +15,7 @@ const PerspectiveDistribution = ({ storyId, compact = false }: PerspectiveDistri
   return (
     <div>
         {compact ? (
-            <div className='space-y-2'>
+            <div className='mt-2 space-y-2'>
                 <div className="flex h-2 w-full rounded overflow-hidden">
                     <div 
                     className="h-full bg-left" 
